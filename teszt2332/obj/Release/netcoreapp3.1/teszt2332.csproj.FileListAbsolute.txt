@@ -1,0 +1,13 @@
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\bin\Release\netcoreapp3.1\teszt2332.exe
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\bin\Release\netcoreapp3.1\teszt2332.deps.json
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\bin\Release\netcoreapp3.1\teszt2332.runtimeconfig.json
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\bin\Release\netcoreapp3.1\teszt2332.runtimeconfig.dev.json
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\bin\Release\netcoreapp3.1\teszt2332.dll
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\bin\Release\netcoreapp3.1\teszt2332.pdb
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.AssemblyInfoInputs.cache
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.AssemblyInfo.cs
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.csproj.CoreCompileInputs.cache
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.dll
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.pdb
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.genruntimeconfig.cache
+C:\Users\SzAcS\source\repos\teszt2332\teszt2332\obj\Release\netcoreapp3.1\teszt2332.csprojAssemblyReference.cache
