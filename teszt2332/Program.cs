@@ -6,14 +6,20 @@ namespace teszt2332
     {
         static void Main(string[] args)
         {
-            emberOsztaly[] emberek = new emberOsztaly[3];
+            emberOsztaly[] emberek = new emberOsztaly[5];
             emberek[0] = new emberOsztaly("Teszt Géza János József", 32, 181, "A-", 101.6);
             emberek[1] = new emberOsztaly("Teszt Béla", 20, 145, "A+", 73.2);
             emberek[2] = new emberOsztaly("Magas Géza", 25, 210, "0-", 81.2);
+            emberek[3] = new emberOsztaly("Kis Árpád", 30, 176, "AB+", 76.4);
+            emberek[4] = new emberOsztaly("Nagy Tamás", 42, 185, "B-", 122.9);
 
             int korhatar = 23;
 
-            for (int i = 0; i < 3; i++)
+
+            emberek[4].pluszegyev();
+            emberek[4].pluszegyev();
+
+            for (int i = 0; i < emberek.Length; i++)
             {
                 if (emberek[i].idosebbMint(korhatar))
                 {
@@ -30,6 +36,7 @@ namespace teszt2332
         private double magassag;
         private string vercsoport;
         private double suly;
+        private double BMI = -1;
 
         public emberOsztaly(string nev, int kor, double magassag, string vercsoport, double suly)
         {
@@ -38,7 +45,33 @@ namespace teszt2332
             this.magassag = magassag;
             this.vercsoport = vercsoport;
             this.suly = suly;
+            this.BMI = suly / ((magassag / 100) * (magassag / 100));
         }
+
+        public double getBMI()
+        {
+            if (BMI != -1)
+                return BMI;
+            else
+            {
+                BMI = suly / ((magassag / 100) * (magassag / 100));
+                return BMI;
+            }
+        }
+
+        public void pluszegyev()
+        {
+           kor = kor + 1;
+        }
+
+        public bool ketkorKozott(int kormin, int kormax)
+        {
+            if (this.kor >= kormin & this.kor <= kormax)
+                return true;
+            else
+                return false;
+        }
+
 
         public emberOsztaly()
         {
@@ -57,6 +90,13 @@ namespace teszt2332
             else
                 return false;
         }
+        public bool dagibbMint(int dagi)
+        {
+            if (this.getBMI() > dagi)
+                return true;
+            else
+                return false;
+        }
 
         public override string ToString()
         {
@@ -69,6 +109,11 @@ namespace teszt2332
             for (int i = 1; i < nevreszek.Length; i++)
             {
                 tmp += nevreszek[i] + " ";
+            }
+
+            if (dagibbMint(25)) 
+            {
+                tmp += "Dagi ";
             }
 
             return tmp;
