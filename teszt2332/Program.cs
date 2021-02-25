@@ -6,25 +6,30 @@ namespace teszt2332
     {
         static void Main(string[] args)
         {
-            emberOsztaly[] emberek = new emberOsztaly[5];
-            emberek[0] = new emberOsztaly("Teszt Géza János József", 32, 181, "A-", 101.6);
+            emberOsztaly[] emberek = new emberOsztaly[6];
+            emberek[0] = new emberOsztaly("Teszt Géza János József", 13, 181, "A-", 101.6);
             emberek[1] = new emberOsztaly("Teszt Béla", 20, 145, "A+", 73.2);
             emberek[2] = new emberOsztaly("Magas Géza", 25, 210, "0-", 81.2);
-            emberek[3] = new emberOsztaly("Kis Árpád", 30, 176, "AB+", 76.4);
+            emberek[3] = new emberOsztaly("Kis Árpád", 15, 176, "AB+", 76.4);
             emberek[4] = new emberOsztaly("Nagy Tamás", 42, 185, "B-", 122.9);
+            emberek[5] = new emberOsztaly("Beviz Elek", 54, 170, "0+", 63.2, "kék");
 
-            int korhatar = 23;
+            //int korhatar = 23;
 
-
-            emberek[4].pluszegyev();
-            emberek[4].pluszegyev();
+            //emberek[4].pluszegyev();
+            //emberek[4].pluszegyev();
 
             for (int i = 0; i < emberek.Length; i++)
             {
-                if (emberek[i].idosebbMint(korhatar))
-                {
-                    Console.WriteLine(emberek[i].ToString());
-                }
+                //if (emberek[i].ketkorKozott(0, 15))
+                //{
+                //    emberek[i].pluszegyev();
+                //}
+                //if (emberek[i].konyebbNehezebb(70, 100))
+                //{
+                Console.WriteLine(emberek[i].ToString());
+                //}
+                //emberek[i].pluszegyevAkicsiknek();
             }
         }
     }
@@ -37,8 +42,20 @@ namespace teszt2332
         private string vercsoport;
         private double suly;
         private double BMI = -1;
+        private string szemszin = "barna";
 
         public emberOsztaly(string nev, int kor, double magassag, string vercsoport, double suly)
+        {
+            setTulajdonsagok(nev, kor, magassag, vercsoport, suly, szemszin);
+        }
+
+        public emberOsztaly(string nev, int kor, double magassag, string vercsoport, double suly, string szemszin)
+        {
+            setTulajdonsagok(nev, kor, magassag, vercsoport, suly, szemszin);
+
+        }
+
+        private void setTulajdonsagok(string nev, int kor, double magassag, string vercsoport, double suly, string szemszin)
         {
             this.nev = nev;
             this.kor = kor;
@@ -46,8 +63,8 @@ namespace teszt2332
             this.vercsoport = vercsoport;
             this.suly = suly;
             this.BMI = suly / ((magassag / 100) * (magassag / 100));
+            this.szemszin = szemszin;
         }
-
         public double getBMI()
         {
             if (BMI != -1)
@@ -59,9 +76,19 @@ namespace teszt2332
             }
         }
 
+
         public void pluszegyev()
         {
-           kor = kor + 1;
+            kor = kor + 1;
+        }
+
+        public void pluszegyevAkicsiknek()
+        {
+            if (this.kor <= 15)
+            {
+                pluszegyev();
+                //kor = kor + 1;
+            }
         }
 
         public bool ketkorKozott(int kormin, int kormax)
@@ -72,23 +99,19 @@ namespace teszt2332
                 return false;
         }
 
-
-        public emberOsztaly()
+        public bool konnyebbmint(double suly)
         {
-
+            return this.suly < suly;
         }
 
-        public emberOsztaly(string nev)
+        public bool nehezebbmint(double suly)
         {
-            this.nev = nev;
+            return !konnyebbmint(suly);
         }
 
         public bool idosebbMint(int kor)
         {
-            if (this.kor >= kor)
-                return true;
-            else
-                return false;
+            return ketkorKozott(kor, 999);
         }
         public bool dagibbMint(int dagi)
         {
@@ -111,9 +134,19 @@ namespace teszt2332
                 tmp += nevreszek[i] + " ";
             }
 
-            if (dagibbMint(25)) 
+            if (dagibbMint(25))
             {
                 tmp += "Dagi ";
+            }
+
+            if (ketkorKozott(0, 20))
+            {
+                tmp += "Fiatal";
+            }
+
+            if (ketkorKozott(50, 999))
+            {
+                tmp += "Idős";
             }
 
             return tmp;
